@@ -7,8 +7,10 @@ import { User } from "./schemas/User";
 
 const express = require('express');
 const { createConnection } = require('typeorm')
+const cors = require('cors');
 
 const app = express();
+app.use(cors())
 app.use(express.json())
 app.use('/api', categoriesRoute)
 app.use('/api', expenseRoute)

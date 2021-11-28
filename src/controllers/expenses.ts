@@ -34,6 +34,7 @@ export async function getUserExpenses(data: getExpenseData) {
 
         return await expenseRepo.find(
             {
+                category: category,
                 created_by: user,
                 created_at: Between(
                     new Date(data.start_date).toISOString(),
