@@ -13,7 +13,10 @@ export class Expense {
     @Column({length:'30'})
     name: string
 
-    @Column({length: '300'})
+    @Column()
+    amount: number
+
+    @Column({length: '300', nullable: true})
     description: string
 
     @CreateDateColumn()

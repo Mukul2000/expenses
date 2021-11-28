@@ -1,4 +1,5 @@
 import { categoriesRoute } from "./routes/categories";
+import { expenseRoute } from "./routes/expenses";
 import { usersRoute } from "./routes/users";
 import { Category } from "./schemas/Category";
 import { Expense } from "./schemas/Expense";
@@ -10,6 +11,7 @@ const { createConnection } = require('typeorm')
 const app = express();
 app.use(express.json())
 app.use('/api', categoriesRoute)
+app.use('/api', expenseRoute)
 app.use('/api/users', usersRoute)
 
 createConnection({
