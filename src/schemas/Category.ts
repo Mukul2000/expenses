@@ -5,11 +5,12 @@ const { Entity, Column, CreateDateColumn, PrimaryColumn } = require('typeorm')
 
 @Entity() 
 export class Category {
-    @PrimaryGeneratedColumn()
-    id: number
 
-    @Column({ length: '30' })
+    @PrimaryColumn({ length: '30', unique: true })
     name: string
+
+    @CreateDateColumn()
+    created_at: Date
 
     @ManyToOne(() => User)
     created_by: User

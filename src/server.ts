@@ -1,3 +1,4 @@
+import { categoriesRoute } from "./routes/categories";
 import { usersRoute } from "./routes/users";
 import { Category } from "./schemas/Category";
 import { Expense } from "./schemas/Expense";
@@ -8,6 +9,7 @@ const { createConnection } = require('typeorm')
 
 const app = express();
 app.use(express.json())
+app.use('/api', categoriesRoute)
 app.use('/api/users', usersRoute)
 
 createConnection({
@@ -19,6 +21,6 @@ createConnection({
     synchronize: true,
     logging: true,
     logger: 'advanced-console',
-    dropSchema: true,
+    // dropSchema: true,
 }).then(() => app.listen(8000, () => console.log("Server started on port 8000"))).catch((e: any) => console.log(e))
 
