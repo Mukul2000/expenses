@@ -41,7 +41,9 @@ export async function createCategory(data: createCategoryData) {
 export async function getUserCategories(data : userCategories) {
     if(!data.email) throw "email is invalid";
 
-    const results = await getRepository(Category).find();
+    const user = await getRepository(User).findOne(data.email);
+
+    const results = await getRepository(Category).find({created_by: user});
 
     return results;
 }
