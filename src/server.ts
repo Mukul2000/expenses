@@ -18,9 +18,12 @@ app.use('/api/users', usersRoute)
 
 createConnection({
     type: 'postgres',
-    username: 'expense',
-    password: 'expense',
+    // username: 'expense',
+    // password: 'expense',
     database: 'expense',
+    // username: 'klsbjarj',
+    // password: 'C-YVXAgMAaHa17NhYfEN6XdonAngN0qQ',
+    url: 'postgres://klsbjarj:C-YVXAgMAaHa17NhYfEN6XdonAngN0qQ@castor.db.elephantsql.com/klsbjarj',
     entities: [User, Category, Expense],
     synchronize: true,
     logging: true,
